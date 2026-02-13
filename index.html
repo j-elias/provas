@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Prova</title>
+        <script>
+            // TODO: Add code to check answers to questions
+            document.addEventListener('DOMContentLoaded', function() {
+                //Get all elements with class "correct"
+                let corrects = document.querySelectorAll('.correct');
+
+                //Add event listeners to each correct button
+                for (let i = 0; i < corrects.length; i++) {
+                    corrects[i].addEventListener('click', function() {
+                        //Set background color to green
+                        corrects[i].style.backgroundColor = 'Green';
+
+                        //Go to parent element of correct button and find the first element with class "feedback" which has that parent
+                        corrects[i].parentElement.querySelector('.feedback').innerHTML = 'Correct!';
+                    });
+                }
+
+                //When any incorrect answer is clicked, change color to red.
+
+                let incorrects = document.querySelectorAll(".incorrect");
+                for (let i = 0; i < incorrects.length; i++) {
+                    incorrects[i].addEventListener('click', function() {
+                        //Set background color to red
+                        incorrects[i].style.backgroundColor = 'Red';
+
+                        //Go to parent element of incorrect button and find the first element with class "feedback" which has that parent
+                        incorrects[i].parentElement.querySelector('.feedback').innerHTML = 'Incorrect';
+                    });
+                }
+
+                //Check free response submission
+                document.querySelector('#check').addEventListener('click', function () {
+                    let input = document.querySelector('input');
+                    if (input.value === 'Switzerland') {
+                        input.style.backgroundColor = 'green';
+                        input.parentElement.querySelector('.feedback').innerHTML = 'Correct!';
+                    }
+                    else{
+                        input.style.backgroundColor = 'red';
+                        input.parentElement.querySelector('.feedback').innerHTML = 'Incorrect';
+                    }
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Lingua Portuguesa - Texto para respoder as questoes 01 a 10:</h2>
+                <div class="text">
+
+                    <h2 class="text-title">Uma Esperança</h2>
+                    <h3 class="text-autor">Clarice Lispector</h3>
+                    <p>Aqui em casa pousou uma esperança. Não a clássica, que tantas vezes verifica-se ser ilusória, embora mesmo assim nos sustente sempre. Mas a outra, bem concreta e verde: o inseto.</p>
+                    <p>Houve um grito abafado de um de meus filhos:</p>
+                    <p>&mdash; Uma esperança! e naparede, bem em cima de sua cadeira! Emoção dele também que unia em uma só as duas esperanças, já tem idade para isso. Antes surpresa minha: esperança é coisa secreta e costuma pousar diretamente em mim, sem ninguém saber, e não acima de minha cabeça numa parede. Pequeno rebuliço: mas era indubitável, lá estava ela, e mais magra e verde não poderia ser.</p>
+                    <p>&mdash; Ela quase não tem corpo, queixei-me.</p>
+                    <p>&mdash; Ela só tem alma, explicou meu filho e, como filhos são uma surpresa para nós, descobri com surpresa que ele falava das duas esperanças.</p>
+                    <p>Ela caminhava devagar sobre os fiapos das longas pernas, por entre os quadros da parede. Três vezes tentou renitente uma saída entre dois quadros, três vezes teve que retroceder caminho. Custava a aprender.</p>
+                    <p>&mdash; Ela é burrinha, comentou o menino.</p>
+                    <p>&mdash; sei disso, respondi um pouco trágica.</p>
+                    <p>&mdash; Está agora procurando outro caminho, olhe, coitada, como ela hesita.</p>
+                    <p>&mdash; Sei, é assim mesmo.</p>
+                    <p>Ali ficamos, não sei quanto tempo olhando. Vigiando-a como se vigiava na Grécia ou em Roma o começo de fogo do lar para que não se apagasse.</p>
+                    <p>&mdash; Ela se esqueceu de que pode voar, mamãe, e pensa que só pode andar devagar assim.</p>
+                    <p>Andava mesmo devagar &mdash; estaria por acaso ferida? Ah não, senão de um modo ou de outroescorreira sangue, tem sido sempre assim comigo.</p>
+                    <p>Foi então que farejando o mundo que é comível, saiu de trás de um quadro uma aranha. Não uma aranha, mas me parecia "a" aranha. Andando pela sua teia invisível, parecia transladar-se maciamento no ar. Ela queria a esperança.</p>
+                    <p>Mas nós também queríamos e, oh! Deus, queríamos menos que comê-la. Meu filho foi buscar a vassoura. Eu disse fracamente, confusa, sem saber se chegara infelizmente a hora certa de perder a esperança:</p>
+                    <p>&mdash; É que não se mata aranha, me disseram que trás sorte...</p>
+                    <p>&mdash; Mas ela vai esmigalhar a esperança! respondeu o menino com ferocidade.</p>
+                    <p>&mdash; Preciso falar com a empregada para limpar atrás dos quadros &mdash; falei sentindo a frase deslocada e ouvindo o certo cansaço que havia na minha voz. Depois devaneei um pouco de como eu seria sucinta e misteriosa com a empregada: eu lhe diria apenas: você faz o favor de facilitar o caminho da esperança.</p>
+                    <p>O menino, morta a aranha, fez um trocadilho, om o inseto e a nossa esperança. Meu outro filho, que estava vendo televisão, ouviu e riu de prazer. Não havia dúvida: a esperança pousara em casa, alma e corpo.</p>
+                    <p>Mas como é bonito o inseto: mais pousa que vive, é um esqueletinho verde, e tem uma forma tão delicada que isso explica porque eu, que gosto de pegar nas coisas, nunca tentei pegá-la.</p>
+                    <p>Uma vez, aliás, agora é que me lembro, uma esperança bem menor que esta, pousara no meu braço. Não senti nada, de tão leve que era, foi só visualmente que tomei consciência de sua presença. Encabulei com a delicadeza.</p>
+                    <p>Eu não mexia o braço e pensei: "e essa agora? que devo fazer?" Em verdade nada fiz. Fiquei extremamente quieta como se uma flor tivesse nascido em mim. Depois não me lembromais o que aconteceu. E, acho que não aconteceu nada.</p>                
+                </div>
+
+                <hr>
+                <!-- TODO: Add multiple choice question here -->
+                <h3>01 - O conto Uma esperança de Clarice Lispector, utiliza alguns recursos literários para causar catarse e aguçar a sensibilidade do leitor. Ao escolher fazer divagações sobre a esperança, uma espécie de inseto, o narrador-personagem evidencia o caráter reflexivo do texto, por meio da:</h3>
+                <button class="incorrect">ironia, fazendo ponderações que se aplicam exclusivamente à esperança como inseto.</button>
+                <button class="incorrect">ironia, fazendo ponderações que se aplicam exclusivamente à esperança como um estado emocional.</button>
+                <button class="correct">ambiguidade, fazendo ponderações que se aplicam tanto à esperança como inseto quanto como estado emocional.</button>
+                <button class="incorrect">ambiguidade, fazendo ponderações que se aplicam exclusivamente à esperança como um estado emocional.</button>
+                <p class="feedback"></p>
+
+                <hr>
+                <h3>02 - Considere o trecho do texto:</h3>
+                <p><em>Ela queria a esperança. Mas nós também queríamos e, <strong>oh!</strong> Deus, queríamos menos que comê-la.</em></p>
+                <h3>O termo assinalado se caracteriza como:</h3>
+                <button class="incorrect">Um substantivo.</button>
+                <button class="correct">Uma interjeição.</button>
+                <button class="incorrect">Um adjetivo.</button>
+                <button class="incorrect">Um advérbio.</button>
+                <p class="feedback"></p>
+
+                <hr>
+                <h3>03 - Considere o trecho do texto:</h3>
+                <p><em>Eu não mexia o braço e pensei: <strong>"e essa agora? que devo fazer?"</strong></em></p>
+                <h3>O trecho entre aspas trata-se de:</h3>
+                <button class="correct">Discurso direto.</button>
+                <button class="incorrect">Discurso indireto.</button>
+                <button class="incorrect">Discurso indireto livre.</button>
+                <button class="incorrect">Não há discurso.</button>
+                <p class="feedback"></p>
+
+                <hr>
+                <h3>04 - Em</h3>
+                <p><em>"Três vezes tentou <strong>renitente</strong> uma saída entre dois quadros"</em></p>
+                <h3>a palavra assinalada poderia ser substituída mantendo o sentido do texto, por:</h3>
+                <button class="incorrect">Desinteressada</button>
+                <button class="incorrect">Gripada</button>
+                <button class="incorrect">Despreocupada</button>
+                <button class="correct">Obstinada</button>
+                <p class="feedback"></p>
+
+                <hr>
+                <h3>05 - Considere a situação hipotética em que havia um grupo de insetos no quintal de uma família, e apenas um deles entrou na casa. Assinale a sentença que se refira ao inseto que adentrou a casa levando em conta a existência dos demais:</h3>
+                <button class="incorrect">Ela olhava assustada para o inseto, que entrou na casa.</button>
+                <button class="correct">Ela olhava assustada para o inseto que entrou na casa.</button>
+                <button class="incorrect">Ela, olhava assustada para o inseto, que entrou na casa.</button>
+                <button class="incorrect">Ela, olhava assustada para o inseto que entrou na casa.</button>
+                <p class="feedback"></p>
+
+                <hr>
+                <h3>06 - No primeiro parágrafo</h3>
+                <p><em>Aqui em casa pousou uma esperança. Não <strong>a clássica</strong>, que tantas vezes verifica-se ser ilusória, embora mesmo assim nos sustente sempre. Mas a outra, bem concreta e verde: o inseto.</em></p>
+                <h3>Pode-se inferir que o termo assinalado, refere-se:</h3>
+                <button class="incorrect">ao inseto.</button>
+                <button class="correct">à um estado emocional.</button>
+                <button class="incorrect">à casa.</button>
+                <button class="incorrect">à um outro tipo de inseto.</button>
+                <p class="feedback"></p>
+
+                <hr>
+                <h3>07 - Assinale a sentença que utiliza corretamente o acento grave:</h3>
+                <button class="incorrect">Ele se referiu a esperança verde e concreta.</button>
+                <button class="incorrect">Ele ficou fente à frente com a esperança.</button>
+                <button class="correct">Às vezes eu criava outro tipo de esperança.</button>
+                <button class="incorrect">A esperança estava à voar pela casa.</button>
+                <p class="feedback"></p>
+
+                <hr>
+                <h3>08 - </h3>
+                <p><em>Parece que esperança não tem olhos,<strong>mamãe</strong>,m é guiada pelas antenas.</em></p>
+                <h3>O termo assinalado trata-se de:</h3>
+                <button class="correct">Um vocativo</button>
+                <button class="incorrect">Uma oração reduzida</button>
+                <button class="incorrect">Um aposto</button>
+                <button class="incorrect">Uma interjeição</button>
+                <p class="feedback"></p>
+
+                <hr>
+                <h3>09 - Sobre o texto, seria correto afirmar que:</h3>
+                <button class="incorrect">Trata-se de uma descoberta, entre mãe e filhos, do estilo de vida dos insetos, da fragilidade desses animais e de seus possíveis predadores.</button>
+                <button class="correct">A mãe, junto com seus filhos, faz reflexões sobre um inseto em sua casa, enquanto alcança questões íntimas relacionadas à esperança como sentimento.</button>
+                <button class="incorrect">A mãe se surpreende com uma esperança em sua casa, e entende que a empregada precisa limpar melhor o local pela presença de tantos insetos.</button>
+                <button class="incorrect">Uma família percebe a sua falta de esperança no mundo, enquanto observa um inseto na parede de soua casa.</button>
+                <p class="feedback"></p>
+
+                <hr>
+                <h3>10 - </h3>
+                <p><em>Não uma aranha, mas me parecia "a" aranha.</em></p>
+                <h3>No trecho acima, as aspas ocorrem:</h3>
+                <button class="correct">para aguçar o significado do termo entre aspas.</button>
+                <button class="incorrect">pelo termo entre aspas se tratar de neologismo.</button>
+                <button class="incorrect">para se referir à fala de outro personagem.</button>
+                <button class="incorrect">por se tratar de um estrangeirismo.</button>
+                <p class="feedback"></p>
+            </div>
+                
+            <div class="section">
+                <h2>Matemática - 10 questões</h2>
+
+                <hr>
+                <h3>01 - A média aritmética das idades dos candidatos a um processo seletivo municipal é de 36 anos. Quando separamos por sexo, essa média é de 37 anos para o grupo do sexo masculino e 34 para o grupo do sexo feminino. A razão entre o numero de homens e mulheres é:</h3>
+                <button class="incorrect">1/2</button>
+                <button class="incorrect">37/34</button>
+                <button class="correct">2</button>
+                <button class="incorrect">34/37</button>
+                <p class="feedback"></p>
+
+                <hr>
+                <h3>02 - A população de uma cidade era de 10.000 habitantes em 1970, tendo crescido 20% na primeira década seguinte e 12% cumulativamente na segunda década seguinte. Qual a população dessa cidade em 1990?</h3>
+                <button class="incorrect">12.000</button>
+                <button class="incorrect">13.120</button>
+                <button class="incorrect">13.200</button>
+                <button class="correct">13.440</button>
+                <p class="feedback"></p>
+
+                <hr>
+                <h3>03 - Numa estrada um carro quebrou atravessando a pista e provocou um congestionamento de algumas horas, formando uma fila de automóveis de 3,6 km. Sabendo-se que cada carro ocupa, em média, 4,5 m, incluindo o espaço que o separa do imediatamente anterior e do posterior, então o número aproximado de carros que havia no congestionamento era igual a:</h3>
+                <button class="incorrect">1200</button>
+                <button class="incorrect">950</button>
+                <button class="correct">800</button>
+                <button class="incorrect">750</button>
+                <p class="feedback"></p>
+
+                <hr>
+                <h3>04 - Para realizar uma tarefa, 30 funcionários levam 6 dias, trabalhando 8 horas por dia. Para realizar a mesma tarefa, em iguais condições, 20 operários, trabalhando 9 horas por dia, levarão:</h3>
+                <button class="correct">8 dias</button>
+                <button class="incorrect">7 dias</button>
+                <button class="incorrect">6 dias</button>
+                <button class="incorrect">5 dias</button>
+                <p class="feedback"></p>
+
+                <hr>
+                <h3>05 - A tabela a seguir registra o resultado de uma pesquisa feita, em uma cidade, com pessoas n a faixa etária de 20 a 60 anos, para se saber a taxa de desemprego.</h3>
+                <div class="table-container">
+                    <table>
+                        <tr>
+                            <th>Empregados</th>
+                            <th>Desempregados</th>
+                        </tr>
+                        <tr>
+                            <td>27.500</td>
+                            <td>14.700</td>
+                        </tr>
+                    </table>
+                </div>
+                <h3>Com base nesses dados, o número de pessoas que precisam se empregar, para que a taxa de desemprego caia para 10%, é igual a:</h3>
+                <button class="incorrect">4500</button>
+                <button class="incorrect">5200</button>
+                <button class="incorrect">9000</button>
+                <button class="correct">10500</button>
+                <p class="feedback"></p>
+
+                <hr>
+                <h3>06 - A pontuação numa prova de 25 questões é a seguinte: +4 pontos por questão respondida corretamente e -1 por questão respondida de forma errada. Para que um aluno receba nota correspondente a um número positivo, deverá acertar no mínimo:</h3>
+                <button class="incorrect">3 questões</button>
+                <button class="incorrect">4 questões</button>
+                <button class="incorrect">5 questões</button>
+                <button class="correct">6 questões</button>
+                <p class="feedback"></p>
+
+                <hr>
+                <h3>07 - Um trabalhador compromete 20% do seu salário com o aluguel. Se este aluguel subir 40% e o salário do trabalhador tiver um reajuste de 12%, que porcentagem do salário ele passará a comprometer com o aluguel?</h3>
+                <button class="incorrect">12%</button>
+                <button class="incorrect">15%</button>
+                <button class="incorrect">20%</button>
+                <button class="correct">25%</button>
+                <p class="feedback"></p>
+                
+                <hr>
+                <h3>08 - Em uma eleição, a qual concorriam três candidatos, votaram 1.500 eleitores; o candidato A obteve 376 votos, o candidato B, 645 votos e o candidato C obteve 299 votos. A porcentagem de votos brancos ou nulos foi:</h3>
+                <button class="correct">12%</button>
+                <button class="incorrect">13,2%</button>
+                <button class="incorrect">15%</button>
+                <button class="incorrect">18%</button>
+                <p class="feedback"></p>
+
+                <hr>
+                <h3>09 - A tripulação de um navio, composta de 180 homens, dispõe de víveres para 60 dias. Descorridos 15 dias de viagem foram recolhidos 45 náufragos. Para quantos dias ainda darão os víveres, após o aumento da tripulação?</h3>
+                <button class="correct">36</button>
+                <button class="incorrect">27</button>
+                <button class="incorrect">30</button>
+                <button class="incorrect">42</button>
+                <p class="feedback"></p>
+
+                <hr>
+                <h3>10 - Para emitir uma ordem de pagamento, um Banco cobra de seus clientes uma comissão de 1,8% sobre o seu valor. Se, ao enviar por esse Banco uma ordem de pagamento, um cliente desembolsou o total de R$ 5.090,00, o valor dessa ordem de pagamento era de:</h3>
+                <button class="incorrect">R$ 4.500,00</button>
+                <button class="correct">R$ 5.000,00</button>
+                <button class="incorrect">R$ 4.750,00</button>
+                <button class="incorrect">R$ 4.800,00</button>
+                <p class="feedback"></p>                
+            </div>
+
+            <div class="section">
+                <h2>Conhecimentos Específicos - 10 questões</h2>
+
+                <hr>
+                <h3>01 - <em>"O controle da atividade cardíaca é feito através do nervo vago que atua __________ e o simpático que atua __________. Estes nervos agem sobre uma formação situada na parede do átrio direito, o __________, considerado como o "marca-passo" do coração."</em> <br>Indique a alternativa que completa corretamente as lacunas acima:</h3>
+                <button class="incorrect">estimulando / inibindo/ nó sinoatrial</button>
+                <button class="correct">inibindo / estimulando/ nó sinoatrial</button>
+                <button class="incorrect">estimulando / inibindo/ feixe átrio-ventricular</button>
+                <button class="incorrect">inibindo / estimulando/ feixe átrio-ventricular</button>
+                <p class="feedback"></p>
+
+                <hr>
+                <h3>02 - Um paciente do sexo feminino apresenta-se à Clinica de Fisioterapia com encaminhamento médico para realização de tratamento fisioterapêutico para síndrome do impacto do ombro. A paciente apresenta quadro álgico e processo inflamatório agudo com limitação de ADM. Assinale qual a melhor conduta fisioterapêutica:</h3>
+                <button class="incorrect">TENS, ondas curtas, crioterapia, exercício para ganho de ADM e flexibilidade muscular.</button>
+                <button class="incorrect">Ultrassom, crioterapia, exercícios para ganho de ADM e melhora da flexibilidade dos músculos rotadores laterais e mediais do ombro e romboides.</button>
+                <button class="incorrect">TENS, exercícios pendurais, trabalho de força dos músculos rotadores do ombro e exercícios proprioceptivos devem ser implantados.</button>
+                <button class="correct">TENS, crioterapia, tração do ombro, exercícios pendulares.</button>
+                <p class="feedback"></p>
+
+                <hr>
+                <h3>03 - De acordo com o defeito postural de Híperlordose, assinale a alternativa que corresponde aos músculos em posição encurtada e os músculos em posição alongada, respectivamente:</h3>
+                <button class="correct">Eretores da coluna lombar e flexores do quadril encurtados, abdominais (especialmente, oblíquo externo) e extensores do quadril em posição alongada.</button>
+                <button class="incorrect">Abdominais anteriores e extensores do quadril ecurtados, eretores da coluna lombar e flexores do quadril em posição alongada.</button>
+                <button class="incorrect">Abdominais anteriores, superiores (especialmente oblíquo externo) e flexores do quadril em posição alongada.</button>
+                <button class="incorrect">Eretores da coluna lombar e extensores do quadril encurtados, abdominais anteriores e flexores do quadril em posição alongada.</button>
+                <p class="feedback"></p>
+
+
+                <hr>
+                <h3>04 - Na Fisioterapia em Ortopedia, dispõe-se de recursos terapêuticos específicos. Assinale abaixo, os seus respectivos efeitos terapêuticos:</h3>
+                <button class="incorrect">Cinesioterapia para fortalecer a musculatura comprometida e combater o processo inflamatório.</button>
+                <button class="correct">Eletroterapia para aliviar a dor e reduzir o processo inflamatório.</button>
+                <button class="incorrect">Crioterapia para ganho de força muscular e redução da inflamação.</button>
+                <button class="incorrect">Hidroterapia reduz o impacto nas articulações e preconiza ganho de amplitude de movimento e aumento do processo inflamatório.</button>
+                <p class="feedback"></p>
+
+                <hr>
+                <h3>05 - A Osteoatrite de joelho é uma doença de caráter inflamatório e degenerativo e a Fisioterapia tem papel importante na reabilitação. Assinale a conduta fisioterapêutica correta:</h3>
+                <ol type="I">
+                    <li><em>A diatermia por ondas curtas diminui a sintomatologia.</em></li>
+                    <li><em>O gelo age diretamente no fuso muscular e no órgão tendinoso, portanto, uma sobrecarga na execução de exercícios após o resfriamento do músculo, pode levar a nova lesão muscular, uma vez que o contole motor está com o seu limiar alterado.</em></li>
+                    <li><em>Hidroterapia com exercícios de cadeia cinética fechada, alongamento e fortalecimento.</em></li>
+                    <li><em>Treino proprioceptivo através de prancha proprioceptiva.</em></li>
+                </ol>
+                <button class="incorrect">As afirmativas I e II estão corretas.</button>
+                <button class="incorrect">As afirmativas I, III e IV estão corretas.</button>
+                <button class="incorrect">As afirmativas II, III e IV estão corretas.</button>
+                <button class="correct">As afirmativas I, II, III e IV estão corretas.</button>
+                <p class="feedback"></p>
+
+
+                <hr>
+                <h3>06 - As funções do quadril são cruciais para a independência funcional do individuo e, por esse motivo, a Osteoartrite nessa articulação traz grandes repercussões na funcionalidade de seus portadores. Assinale a alternativa incorreta:</h3>
+                <button class="incorrect">Está associada à condição como osteonecrose, trauma doenças congênitas do quadril, artrite reumatoide, atividades que utilizam levantamento de peso, além de atividades esportivas profissionais.</button>
+                <button class="correct">Ela é frequentemente localizada na região posterolateral e posterior da coxa.</button>
+                <button class="incorrect">É observada durante o movimento de hiperextensão, bem como os de rotação medial e lateral dessa articulação.</button>
+                <button class="incorrect">A presença de osteófitos no acetábulo ou ao redor da cabeça femoral e redução do espaço articular confirmam diagnóstico através de um exame radiológico</button>
+                <p class="feedback"></p>
+
+                <hr>
+                <h3>07 - A inflamação dos tendões abdutor longo do polegar e extensor curto do polegar na região da tabaqueire anatômica, se refere à definição de:</h3>
+                <button class="incorrect">Contratura de Dupuytren.</button>
+                <button class="incorrect">Sindrome do Túnel Cubital.</button>
+                <button class="correct">Sindrome de Quervain.</button>
+                <button class="incorrect">Sindrome do Supinador.</button>
+                <p class="feedback"></p>
+                
+                <hr>
+                <h3>08 - Sobre a alteracão postural caracterizada por hiperextensão dos joelhos, é correto afirmar:</h3>
+                <button class="incorrect">Por ser uma alteração postural que ocorre, predominantemente no plano sagital, espera-se que afete, principalmente, c controle ântero-posterior do deslocamento do centro de pressão.</button>
+                <button class="incorrect">Está relacionado a um maior risco de lesões no joelho, especialmente do ligamento cruzado anterior</button>
+                <button class="incorrect">Nesta condição o vetor da força-peso é deslocado para uma posição anterior ao eixo da articulação o que gera um torque extensor, contido por ligamentos e pela porção posterior da cápsula articular</button>
+                <button class="correct">Todas as alternativas estão corretas</button>
+                <p class="feedback"></p>
+
+                <hr>
+                <h3>09 - A Síndrome do Piriforme é caracterizada por compressão no nervo:</h3>
+                <button class="incorrect">Obturatório</button>
+                <button class="incorrect">Femoral.</button>
+                <button class="correct">Ciático.</button>
+                <button class="incorrect">Nervo cutâneo lateral da coxa.</button>
+                <p class="feedback"></p>
+
+                <hr>
+                <h3>10 - 0 Eletrocardiograma e um instrumento muito Importante para d avaliação da capacidade do coração para a transmissao do impulso cardiaco. No Eletrocardiograma a onda "P":</h3>
+                <button class="incorrect">É causada pela voltagem produzida pela passagem do impulso nervoso pelos átrios</button>
+                <button class="correct">É causada pela passagem do impulso pelos ventrículos.</button>
+                <button class="incorrect">É produzida pelo retorno do potencial de membrana das fibras musculares ventriculares ao seu valor normal de repouso, ao término da contração.</button>
+                <button class="incorrect">Representa a pressão arterial elevada devida a carga excessiva de pressão exercida sobre o ventriculc esquerdo.</button>
+                <p class="feedback"></p>                
+            </div>
+
+
+            
+        </div>
+    </body>
+</html>
