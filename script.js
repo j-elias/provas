@@ -1,42 +1,96 @@
-// TODO: Add code to check answers to questions
 document.addEventListener('DOMContentLoaded', function () {
-    //Get all elements with class "correct"
-    let corrects = document.querySelectorAll('.correct');
-
-    //Add event listeners to each correct button
-    for (let i = 0; i < corrects.length; i++) {
-        corrects[i].addEventListener('click', function () {
-            //Set background color to green
-            corrects[i].style.backgroundColor = 'Green';
-
-            //Go to parent element of correct button and find the first element with class "feedback" which has that parent
-            corrects[i].parentElement.querySelector('.feedback').innerHTML = 'Correct!';
+    // Encapsula cada pergunta em um contêiner `.question` para tornar manipulação mais robusta
+    function wrapQuestions() {
+        const headers = Array.from(document.querySelectorAll('.container h3'));
+        headers.forEach(h3 => {
+            if (h3.closest('.question')) return;
+            const q = document.createElement('div');
+            q.className = 'question';
+            h3.parentNode.insertBefore(q, h3);
+            let node = h3;
+            while (node && node.nodeType === 1 && node.tagName !== 'HR' && node.tagName !== 'H3') {
+                const next = node.nextSibling;
+                q.appendChild(node);
+                node = next;
+            }
         });
     }
 
-    //When any incorrect answer is clicked, change color to red.
+    wrapQuestions();
 
-    let incorrects = document.querySelectorAll(".incorrect");
-    for (let i = 0; i < incorrects.length; i++) {
-        incorrects[i].addEventListener('click', function () {
-            //Set background color to red
-            incorrects[i].style.backgroundColor = 'Red';
+    let score = 0;
 
-            //Go to parent element of incorrect button and find the first element with class "feedback" which has that parent
-            incorrects[i].parentElement.querySelector('.feedback').innerHTML = 'Incorrect';
-        });
+    const scoreDiv = document.createElement('div');
+    scoreDiv.id = 'scoreboard';
+    scoreDiv.textContent = 'Pontuação: 0';
+    document.body.insertBefore(scoreDiv, document.body.firstChild);
+
+    function findFeedback(el) {
+        let sib = el.nextElementSibling;
+        while (sib) {
+            if (sib.classList && sib.classList.contains('feedback')) return sib;
+            sib = sib.nextElementSibling;
+        }
+        return el.parentElement.querySelector('.feedback');
     }
 
-    //Check free response submission
-    document.querySelector('#check').addEventListener('click', function () {
-        let input = document.querySelector('input');
-        if (input.value === 'Switzerland') {
-            input.style.backgroundColor = 'green';
-            input.parentElement.querySelector('.feedback').innerHTML = 'Correct!';
+    function getQuestionButtons(btn) {
+        const buttons = new Set();
+        buttons.add(btn);
+        let sib = btn.previousElementSibling;
+        while (sib && sib.tagName !== 'H3' && sib.tagName !== 'HR') {
+            if (sib.tagName === 'BUTTON') buttons.add(sib);
+            sib = sib.previousElementSibling;
         }
-        else {
-            input.style.backgroundColor = 'red';
-            input.parentElement.querySelector('.feedback').innerHTML = 'Incorrect';
+        sib = btn.nextElementSibling;
+        while (sib && sib.tagName !== 'H3' && sib.tagName !== 'HR') {
+            if (sib.tagName === 'BUTTON') buttons.add(sib);
+            sib = sib.nextElementSibling;
         }
+        return Array.from(buttons);
+    }
+
+    function handleAnswer(btn, isCorrect) {
+        const feedback = findFeedback(btn);
+        const qButtons = getQuestionButtons(btn);
+        if (qButtons.some(b => b.disabled)) return;
+        qButtons.forEach(b => b.disabled = true);
+        if (isCorrect) {
+            btn.classList.add('correct-answer');
+            if (feedback) feedback.textContent = 'Correta!';
+            score++;
+        } else {
+            btn.classList.add('incorrect-answer');
+            if (feedback) feedback.textContent = 'Incorreta!';
+            const correctBtn = qButtons.find(b => b.classList.contains('correct'));
+            if (correctBtn) {
+                correctBtn.classList.add('show-correct');
+                if (feedback) feedback.innerHTML = 'Incorreta! <br><strong>Resposta correta:</strong> ' + correctBtn.textContent;
+            }
+        }
+        scoreDiv.textContent = 'Pontuação: ' + score;
+    }
+
+    document.querySelectorAll('button.correct').forEach(btn => {
+        btn.addEventListener('click', function () { handleAnswer(btn, true); });
+    });
+
+    document.querySelectorAll('button.incorrect').forEach(btn => {
+        btn.addEventListener('click', function () { handleAnswer(btn, false); });
+    });
+
+    const reset = document.createElement('button');
+    reset.id = 'reset-answers';
+    reset.textContent = 'Reiniciar';
+    reset.style.margin = '8px';
+    scoreDiv.appendChild(reset);
+    reset.addEventListener('click', function () {
+        score = 0;
+        scoreDiv.textContent = 'Pontuação: 0';
+        document.querySelectorAll('button').forEach(b => {
+            b.disabled = false;
+            b.classList.remove('correct-answer', 'incorrect-answer', 'show-correct');
+        });
+        document.querySelectorAll('.feedback').forEach(f => f.innerHTML = '');
     });
 });
